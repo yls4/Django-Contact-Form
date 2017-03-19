@@ -1,0 +1,31 @@
+<html>
+<body>
+<h1> Reminder Page </h1>
+<table border="1">
+ <tr>
+   <td> Name: </td>
+   <td> Times Contacted </td>
+   <td> Number </td>
+   <td> Address </td>
+   <td></td>
+   <td></td>
+  </tr>
+{% for x in data %}
+ <tr>
+	<form action="/contact/update/" method="post"> {% csrf_token %}
+	<td>{{ x.name }}</td>    
+	<td>{{ x.contacted }}</td>
+	<td>{{ x.phone }} </td>
+	<td>{{ x.address }} </td>
+	<td><button name="contacted" type="submit"> Mark as contacted </button></td>
+	<td><button name="removed" type="submit"> Remove from contacts </button></td>
+	<input id="id" name="id" type="hidden" value={{x.id}}>
+	</form>
+	<br>
+ </tr>
+{% endfor %}
+</table>
+</body>
+
+<a href='/contact/'> <button type="button">Back</button> </a>
+</html>

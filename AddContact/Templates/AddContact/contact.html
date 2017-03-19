@@ -1,0 +1,10 @@
+<html>
+<div align="center">
+<h2> Input Form </h2>
+<form action='/contact/' method='post'>{% csrf_token %}
+{{ form.as_p }}
+<input type='submit' value='Submit' />
+</form>
+<a href='/contact/reminder/'> <button type="button">Entry Page</button> </a>
+</div>
+</html>
